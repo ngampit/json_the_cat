@@ -1,3 +1,4 @@
+const { builtinModules } = require('module');
 const request = require('request');
 const args = process.argv;
 const breedName = args[2];
@@ -10,8 +11,10 @@ request(`https://api.thecatapi.com/v1/breeds/search/?q=${breedName}`,(error,resp
   //console.log('breed not found', error); // Print the error if one occurred
 //  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
   const data = JSON.parse(body);
-  if (!error) {
-    console.log(data);
-  }
+  // if (!error) {
+  //   console.log(data);
+  // }
 });
 
+
+module.exports = request; 
